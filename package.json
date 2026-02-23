@@ -1,11 +1,18 @@
 {
-  "name": "@god-spear/spear",
+  "name": "god-spear",
   "version": "0.1.0",
   "type": "module",
   "bin": {
     "spear": "bin/spear.js",
     "create-pfdo-secure": "bin/create-pfdo-secure.js"
   },
+  "files": [
+    "bin/",
+    "lib/",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
   "scripts": {
     "spear:check:ok": "node bin/spear.js check examples/rules.ok.json --trace spear/traces/trace.jsonl",
     "spear:check:fail": "node bin/spear.js check examples/rules.fail.json --trace spear/traces/trace.jsonl",
