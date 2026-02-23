@@ -74,7 +74,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm i -g god-spear || npm i -g .
+      - run: npm i -g god-spear
       - run: spear check .spear-rules.json --out spear/reports
       - uses: actions/upload-artifact@v4
         if: always()
