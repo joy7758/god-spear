@@ -1,105 +1,87 @@
 <p align="center">
-  <img src="assets/logo.svg" width="380" />
+  <img src="assets/logo.svg" width="380"/>
 </p>
 
-# God Spear (god-spear)
+<p align="center">
 
-[![Spear Check](https://github.com/joy7758/god-spear/actions/workflows/spear.yml/badge.svg)](https://github.com/joy7758/god-spear/actions/workflows/spear.yml)
+![npm](https://img.shields.io/npm/v/god-spear)
+![node](https://img.shields.io/node/v/god-spear)
+![license](https://img.shields.io/npm/l/god-spear)
+![downloads](https://img.shields.io/npm/dm/god-spear)
+![build](https://img.shields.io/github/actions/workflow/status/joy7758/god-spear/release.yml?label=release)
 
-A minimal security gate for AI projects:
-- **Spear-Core**: explicit trust-boundary rules with **hard fail-fast** checks
-- **Spear-Trace**: tamper-evident **hash-chained** action trace (black-box logging)
-- **Reports**: JSON + HTML, generated locally and in CI (artifact)
+</p>
 
-## Install
+<p align="center">
+  <b>Explicit Trust Boundaries · Deterministic Failure · Immutable Trace</b>
+</p>
+
+---
+
+## What is god-spear?
+
+`god-spear` is a minimal security gate for AI agents and automation systems.
+
+It enforces:
+
+- Explicit trust-boundary declarations
+- One-vote veto on missing revocation logic
+- Deterministic failure signaling
+- Optional immutable trace chain (Spear-Trace)
+
+Zero runtime dependency.  
+CI-native.  
+Fully removable.
+
+---
+
+## Security Model
+
+god-spear introduces three enforceable primitives:
+
+1. **Failure Signal**
+   Every boundary crossing must define an observable and thresholded failure signal.
+
+2. **Revocation Pathway**
+   Every execution path must define deterministic rollback logic.
+
+3. **Grace Budget (ms)**
+   Post-failure revocation latency constraint for local/edge safety budgets.
+
+If any primitive is missing → `FAIL`.
+
+---
+
+## Installation
 
 ```bash
 npm i -g god-spear
 ```
 
-## Quick start (1 minute)
+---
 
-### 1) Add rules
-
-Create `.spear-rules.json` in your repo root:
-
-```json
-{
-  "trust": {
-    "crossings": [
-      {
-        "id": "C1",
-        "failure_signal": { "signal": "drift", "threshold": 0.05, "sampling_ms": 10 },
-        "revocation_pathway": { "actions": ["revoke-token"], "evidence": ["logref:revocations"] },
-        "grace_period_ms": 10,
-        "authn": { "method": "mTLS" }
-      }
-    ]
-  }
-}
-```
-
-### 2) Run scan (local)
+## Usage
 
 ```bash
-mkdir -p spear/traces
-: > spear/traces/trace.jsonl
-
-spear check .spear-rules.json --out spear/reports --trace spear/traces/trace.jsonl
-open spear/reports/latest.html
+spear check .spear-rules.json
 ```
 
-### 3) Verify trace (tamper-evident)
+Returns:
 
-```bash
-spear trace verify spear/traces/trace.jsonl
-```
+- `PASS`
+- `FAIL`
 
-## What counts as FAIL (hard constraints)
+---
 
-Any trust boundary crossing MUST declare:
+## Supply Chain Integrity
 
-* `failure_signal`
-* `revocation_pathway`
-* `grace_period_ms <= 10` (for local/edge enforcement)
+- Provenance-enabled npm publish (`--provenance`)
+- SBOM generated at release
+- Version pinned in CI
+- Deterministic file whitelist
+- No dynamic install scripts
 
-If missing → **FAIL**.
-
-## CI (GitHub Action)
-
-Minimal workflow:
-
-```yaml
-name: spear-check
-on: [push, pull_request]
-jobs:
-  spear:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-      - run: npm i -g god-spear
-      - run: spear check .spear-rules.json --out spear/reports
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: god-spear-report
-          path: spear/reports
-```
-
-## Scaffold (optional)
-
-```bash
-create-pfdo-secure .
-```
-
-It generates:
-
-* `.spear-rules.json`
-* `.github/workflows/spear.yml`
-* `spear/traces/trace.jsonl`
+---
 
 ## License
 
