@@ -1,0 +1,14 @@
+package/LICENSE
+package/spear/reports/latest.html
+package/lib/check.js
+package/bin/create-pfdo-secure.js
+package/lib/report-html.js
+package/lib/report-json.js
+package/lib/report.js
+package/bin/spear.js
+package/lib/trace.js
+package/spear/reports/latest.json
+package/package.json
+package/spear/traces/trace.jsonl
+package/CHANGELOG.md
+package/README.md
