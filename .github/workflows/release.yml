@@ -54,7 +54,9 @@ jobs:
 
       - name: Publish to npm (trusted publishing + provenance)
         if: steps.npm_version.outputs.exists != 'true'
-        run: npm publish --provenance
+        run: |
+          unset NODE_AUTH_TOKEN
+          npm publish --provenance
 
       - name: Upload GitHub release assets
         uses: softprops/action-gh-release@v2
