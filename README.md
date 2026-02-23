@@ -1,4 +1,10 @@
+<p align="center">
+  <img src="assets/logo.svg" width="320" />
+</p>
+
 # God Spear (god-spear)
+
+[![Spear Check](https://github.com/joy7758/god-spear/actions/workflows/spear.yml/badge.svg)](https://github.com/joy7758/god-spear/actions/workflows/spear.yml)
 
 A minimal security gate for AI projects:
 - **Spear-Core**: explicit trust-boundary rules with **hard fail-fast** checks
