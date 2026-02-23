@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "type": "module",
   "bin": {
-    "spear": "bin/spear.js"
+    "spear": "bin/spear.js",
+    "create-pfdo-secure": "bin/create-pfdo-secure.js"
   },
   "scripts": {
     "spear:check:ok": "node bin/spear.js check examples/rules.ok.json --trace spear/traces/trace.jsonl",
