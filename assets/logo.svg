@@ -1,6 +1,13 @@
-<svg width="360" height="100" viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="360" height="100" rx="12" fill="#0f172a"/>
-  <text x="30" y="60" font-size="38" font-family="monospace" fill="#22d3ee">GOD</text>
-  <text x="130" y="60" font-size="38" font-family="monospace" fill="#f97316">SPEAR</text>
-  <line x1="30" y1="75" x2="330" y2="75" stroke="#334155" stroke-width="2"/>
+<svg width="420" height="110" viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="110" rx="10" fill="#0b1220"/>
+
+  <!-- Sword -->
+  <line x1="70" y1="25" x2="70" y2="85" stroke="#38bdf8" stroke-width="4"/>
+  <polygon points="70,15 60,25 80,25" fill="#38bdf8"/>
+  <line x1="55" y1="85" x2="85" y2="85" stroke="#38bdf8" stroke-width="4"/>
+
+  <!-- Text -->
+  <text x="120" y="65" font-size="38" font-family="monospace" fill="#e2e8f0">
+    GOD-SPEAR
+  </text>
 </svg>

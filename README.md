@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.svg" width="320" />
+  <img src="assets/logo.svg" width="380" />
 </p>
 
 # God Spear (god-spear)
