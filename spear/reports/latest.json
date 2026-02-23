@@ -1,0 +1,17 @@
+{
+  "spec": "god-spear-report",
+  "version": "0.1",
+  "generated_at": "2026-02-23T08:49:08.533Z",
+  "meta": {
+    "project": "god-spear",
+    "rules": ".spear-rules.json"
+  },
+  "summary": {
+    "status": "PASS",
+    "sre": 0,
+    "score": 100,
+    "hard_fail": false,
+    "findings_count": 0
+  },
+  "findings": []
+}

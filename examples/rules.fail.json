@@ -1,0 +1,11 @@
+{
+  "trust": {
+    "crossings": [
+      {
+        "id": "C1",
+        "failure_signal": { "signal": "drift", "threshold": 0.05 },
+        "grace_period_ms": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "trust": {
+    "crossings": [
+      {
+        "id": "C1",
+        "failure_signal": { "signal": "drift", "threshold": 0.05 },
+        "revocation_pathway": { "actions": ["revoke-token"] },
+        "grace_period_ms": 10,
+        "authn": { "method": "mTLS" }
+      }
+    ]
+  }
+}
