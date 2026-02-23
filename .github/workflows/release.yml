@@ -1,0 +1,51 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify version matches git tag
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          PKG_VERSION="$(node -p "require('./package.json').version")"
+          test "$TAG" = "$PKG_VERSION"
+
+      - name: Build release artifacts
+        run: |
+          PKG_TGZ="$(npm pack --silent | tail -n1)"
+          sha256sum "$PKG_TGZ" > release.sha256
+          tar -tzf "$PKG_TGZ" > release.filelist.txt
+          npm install -g @cyclonedx/cyclonedx-npm
+          cyclonedx-npm --output-file sbom.json
+
+      - name: Publish to npm (trusted publishing + provenance)
+        run: npm publish --provenance
+
+      - name: Upload GitHub release assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            god-spear-*.tgz
+            release.sha256
+            release.filelist.txt
+            sbom.json

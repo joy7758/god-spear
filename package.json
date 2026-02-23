@@ -2,6 +2,9 @@
   "name": "god-spear",
   "version": "0.1.1",
   "type": "module",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "bin": {
     "spear": "bin/spear.js",
     "create-pfdo-secure": "bin/create-pfdo-secure.js"
@@ -9,8 +12,10 @@
   "files": [
     "bin/",
     "lib/",
+    "spear/",
     "README.md",
     "LICENSE",
+    "CHANGELOG.md",
     "package.json"
   ],
   "scripts": {
