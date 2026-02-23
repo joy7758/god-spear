@@ -9,4 +9,9 @@ jobs:
         with:
           node-version: "20"
       - run: npm i -g .
-      - run: spear check .spear-rules.json
+      - run: spear check .spear-rules.json --out spear/reports
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: god-spear-report
+          path: spear/reports

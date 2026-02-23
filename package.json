@@ -9,8 +9,8 @@
     "spear:check:ok": "node bin/spear.js check examples/rules.ok.json --trace spear/traces/trace.jsonl",
     "spear:check:fail": "node bin/spear.js check examples/rules.fail.json --trace spear/traces/trace.jsonl",
     "spear:trace:verify": "node bin/spear.js trace verify spear/traces/trace.jsonl",
-    "spear:check": "node bin/spear.js check .spear-rules.json --trace spear/traces/trace.jsonl",
-    "spear:check:default": "node bin/spear.js check --trace spear/traces/trace.jsonl"
+    "spear:check": "node bin/spear.js check .spear-rules.json --trace spear/traces/trace.jsonl --out spear/reports",
+    "spear:check:default": "node bin/spear.js check --trace spear/traces/trace.jsonl --out spear/reports"
   },
   "license": "MIT"
 }
