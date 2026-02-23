@@ -1,0 +1,12 @@
+name: spear-check
+on: [push, pull_request]
+jobs:
+  spear:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm i -g .
+      - run: spear check .spear-rules.json
