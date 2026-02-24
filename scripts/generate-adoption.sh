@@ -2,7 +2,8 @@
 set -euo pipefail
 
 BASE_DIR="/Users/zhangbin/GitHub"
-OUT="ADOPTION.md"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+OUT="$ROOT_DIR/ADOPTION.md"
 
 echo "# Adoption (Dogfooding Evidence)" > "$OUT"
 echo "" >> "$OUT"
@@ -15,21 +16,24 @@ echo "|---|---|" >> "$OUT"
 
 find "$BASE_DIR" -maxdepth 2 -type d -name ".git" -print0 | while IFS= read -r -d '' g; do
   repo="${g%/.git}"
-  cd "$repo" || continue
 
   # only include repos that have spear workflow
-  if [[ ! -f ".github/workflows/spear.yml" ]]; then
+  if [[ ! -f "$repo/.github/workflows/spear.yml" ]]; then
     continue
   fi
 
   # get origin github url
-  origin="$(git remote get-url origin 2>/dev/null || true)"
+  origin="$(git -C "$repo" remote get-url origin 2>/dev/null || true)"
   if [[ "$origin" != *"github.com"* ]]; then
     continue
   fi
 
-  # normalize owner/repo
-  slug="$(echo "$origin" | sed -E 's|.*github.com[:/](.*)/(.*)\.git|\1/\2|')"
+  # normalize owner/repo for both SSH and HTTPS remotes
+  slug="$origin"
+  slug="${slug#git@github.com:}"
+  slug="${slug#https://github.com/}"
+  slug="${slug#http://github.com/}"
+  slug="${slug%.git}"
 
   echo "| \`$slug\` | ![spear-check](https://img.shields.io/github/actions/workflow/status/$slug/spear.yml?label=spear-check) |" >> "$OUT"
 done
