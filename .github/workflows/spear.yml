@@ -1,5 +1,11 @@
 name: spear-check
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
 jobs:
   spear:
     runs-on: ubuntu-latest
@@ -8,10 +14,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npm i -g .
-      - run: spear check .spear-rules.json --out spear/reports
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: god-spear-report
-          path: spear/reports
+      - run: npx -y --package god-spear@0.2.0 spear check .github/security/.spear-rules.json
