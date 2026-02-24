@@ -16,9 +16,14 @@
   <b>Explicit Trust Boundaries · Deterministic Failure · Immutable Trace</b>
 </p>
 
+`god-spear` is a CI-native security gate that blocks risky AI automation unless trust boundaries, deterministic rollback, and failure signals are explicitly defined.
+
 ---
 
 ## What is god-spear?
+
+- **Adoption evidence:** see [ADOPTION.md](ADOPTION.md)
+
 
 `god-spear` is a minimal security gate for AI agents and automation systems.
 
