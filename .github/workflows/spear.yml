@@ -14,4 +14,4 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - run: npx -y --package god-spear@0.2.0 spear check .github/security/.spear-rules.json
+      - run: npx -y --package god-spear@0.2.0 --call "spear check .github/security/.spear-rules.json"
