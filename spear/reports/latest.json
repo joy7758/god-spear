@@ -1,10 +1,10 @@
 {
   "spec": "god-spear-report",
   "version": "0.1",
-  "generated_at": "2026-02-23T08:49:08.533Z",
+  "generated_at": "2026-02-24T00:10:44.263Z",
   "meta": {
     "project": "god-spear",
-    "rules": ".spear-rules.json"
+    "rules": ".github/security/.spear-rules.json"
   },
   "summary": {
     "status": "PASS",
