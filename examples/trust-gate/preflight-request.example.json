@@ -1,0 +1,6 @@
+{
+  "request_id": "req_allow_001",
+  "requested_action": "read_file",
+  "target": "workspace/docs/approved-vendors.md",
+  "requester": "ops-review-agent"
+}

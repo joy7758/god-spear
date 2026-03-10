@@ -41,6 +41,20 @@ This repo focuses on trust gates, boundary checks, and preflight safety validati
 - [ARO Audit](https://github.com/joy7758/aro-audit)
 - [Agent Runtime Safety Kit Overview](https://github.com/joy7758/token-governor/blob/main/docs/agent-runtime-safety-kit.md)
 
+## Quick Demo
+
+- This repo checks trust boundaries before execution.
+- See the trust gate demo and example preflight results below.
+- It is designed to complement Token Governor and ARO Audit.
+
+## Demo Assets
+
+- [Trust Gate Demo](docs/demos/trust-gate-demo.md)
+- [Policy Example](examples/trust-gate/policy.example.json)
+- [Preflight Request Example](examples/trust-gate/preflight-request.example.json)
+- [Allow Result Example](examples/trust-gate/allow-result.example.json)
+- [Deny Result Example](examples/trust-gate/deny-result.example.json)
+
 ---
 
 ## What is god-spear?

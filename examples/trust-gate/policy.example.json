@@ -1,0 +1,16 @@
+{
+  "policy_id": "trust_gate_workspace_v1",
+  "allowed_actions": [
+    "read_file",
+    "list_directory"
+  ],
+  "allowed_targets": [
+    "workspace/docs/",
+    "workspace/reports/"
+  ],
+  "deny_outside_workspace": true,
+  "notes": [
+    "Preflight checks run before execution.",
+    "Policy is intended to be removable and low intrusion."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "request_id": "req_deny_001",
+  "requested_action": "read_file",
+  "target": "../private/finance-draft.xlsx",
+  "decision": "deny",
+  "reason": "Target is outside approved workspace paths.",
+  "policy_refs": [
+    "trust_gate_workspace_v1.allowed_targets",
+    "trust_gate_workspace_v1.deny_outside_workspace"
+  ]
+}
