@@ -48,6 +48,10 @@ https://github.com/joy7758/god-spear-mcp-gate
 
 This adapter shows a low-intrusion trust gate pattern in front of tool execution.
 
+- [ARO Audit LangChain Receipt](https://github.com/joy7758/aro-audit-langchain-receipt)
+
+This can sit after execution, while God Spear MCP Gate handles a preflight trust check before tool execution.
+
 ## Quick Demo
 
 - This repo checks trust boundaries before execution.
