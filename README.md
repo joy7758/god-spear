@@ -41,6 +41,13 @@ This repo focuses on trust gates, boundary checks, and preflight safety validati
 - [ARO Audit](https://github.com/joy7758/aro-audit)
 - [Agent Runtime Safety Kit Overview](https://github.com/joy7758/token-governor/blob/main/docs/agent-runtime-safety-kit.md)
 
+## External Adapter
+
+For a minimal MCP-style preflight integration example, see:
+https://github.com/joy7758/god-spear-mcp-gate
+
+This adapter shows a low-intrusion trust gate pattern in front of tool execution.
+
 ## Quick Demo
 
 - This repo checks trust boundaries before execution.
