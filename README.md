@@ -12,11 +12,34 @@
 
 </p>
 
+# God Spear
+
+*Trust gates for tools, files, and runtime environments.*
+
+Part of the Agent Runtime Safety Kit, alongside Token Governor and ARO Audit.  
+This repo focuses on trust gates, boundary checks, and preflight safety validation.
+
 <p align="center">
   <b>Explicit Trust Boundaries · Deterministic Failure · Immutable Trace</b>
 </p>
 
 `god-spear` is a CI-native security gate that blocks risky AI automation unless trust boundaries, deterministic rollback, and failure signals are explicitly defined.
+
+---
+
+## Role in the Kit
+
+- Checks trust boundaries before execution.
+- Supports preflight validation for risky paths.
+- Useful for tools, files, env, CI, and runtime entry points.
+- Complements budget governance and execution receipts.
+- Designed as a removable, low-intrusion control layer.
+
+## Related Projects
+
+- [Token Governor](https://github.com/joy7758/token-governor)
+- [ARO Audit](https://github.com/joy7758/aro-audit)
+- [Agent Runtime Safety Kit Overview](https://github.com/joy7758/token-governor/blob/main/docs/agent-runtime-safety-kit.md)
 
 ---
 
